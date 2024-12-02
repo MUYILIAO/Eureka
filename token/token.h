@@ -19,16 +19,16 @@ namespace pi
                 TOKEN_EOD,          //eof       结束
                 TOKEN_INTEGER,      //integer   整数
                 TOKEN_PLUS,         // +        加减乘除
-                TIKEN_MINUX,        // -
+                TOKEN_MINUS,        // -
                 TOKEN_ASTERISK,     // *
-                TIOEN_SLASH,        // /
+                TOKEN_SLASH,        // /
                 TOKEN_LPAREN,       // (        括号
                 TOKEN_RPAREN,       // )
-                TOKEN_SEMICOLIN,    // ;        分号
+                TOKEN_SEMICOLON,    // ;        分号
             };
 
             Token();
-            Token(Type type, const string & Literal);
+            Token(Type type, const string & literal);
 
             ~Token() = default;
 
@@ -38,6 +38,9 @@ namespace pi
             string literal() const;    //获取自变量
 
             Token & operator = (const Token & other);   //赋值
+
+            void show() const;          //查看具体的token内容
+
 
             private:
                 //成员数据

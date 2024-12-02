@@ -1,14 +1,15 @@
 #include "token/token.h"
 
 using namespace pi::token;
-std::map<Token::type, string> Token::m_names = {
+
+std::map<Token::Type, string> Token::m_names = {
     {TOKEN_ILLEGAL,     "illegal"},
-    {TOKEN_EOD,          "eof"},
+    {TOKEN_EOF,          "eof"},
     {TOKEN_INTEGER,      "integer"},
     {TOKEN_PLUS,         "+"},
-    {TIKEN_MINUX,        "-"},
+    {TOKEN_MINUS,        "-"},
     {TOKEN_ASTERISK,     "*"},
-    {TIOEN_SLASH,        "/"},
+    {TOKEN_SLASH,        "/"},
     {TOKEN_LPAREN,       "("},
     {TOKEN_RPAREN,       ")"},
     {TOKEN_SEMICOLIN,    ";"}, 
@@ -57,4 +58,10 @@ Token & Token::operator = (const Token & other);
     m_type = other.m_type;
     m_literal = other.mliteral;
     return *this;
+}
+
+//查看token具体内容
+void Token::show () const
+{
+    printf("type = %d name = %s literal = %s\n", m_type, name().c_str(), literal().c_str())
 }
